@@ -16,6 +16,24 @@ please hash the specific file using the SHA256 algorithm and compare the result 
 <br>
 
 <br>
+Upload a file to calculate it's SHA256 hash value:<br><br>
+<input type='file' id="FileToHash" onchange='openFile(event)'><br><br>
+<div id="Hash"></div>
+<script>
+  var openFile = function(event) {
+    var input = event.target;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+	var a =reader.result;
+	     
+      document.getElementById("Hash").innerHTML=rstr2hex(rstr_sha256(a));
+    };
+    reader.readAsBinaryString(input.files[0]);
+  };  
+</script>
+
+<br>
 Download Laws:<br>
 <a href="Absence Fine Law.pdf">Absence Fine Law.pdf</a>
 <br>
